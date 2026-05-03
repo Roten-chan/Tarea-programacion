@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F-String - Wiki Técnica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- MODAL DE ZOOM PARA LA IMAGEN -->
+    <div class="modal-overlay" id="imgModal" onclick="closeModal()">
+        <div class="modal-content">
+            <img src="Dibujo1_pages-to-jpg-0001.jpg" alt="Diagrama ampliado" id="modalImg">
+            <p class="modal-hint">Clic para cerrar</p>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <h1>F-strings y reportes profesionales</h1>
+        <div class="user-signature">
+            <img src="947795.webp" alt="Robin" class="avatar">
+            <div class="signature-text">
+                <h3>Por Zobeiba Henríquez</h3>
+                <span>@Roten-chan</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+
+        <!-- SECCIÓN 1: QUÉ SON -->
+        <section class="info-card">
+            <h2>¿QUÉ SON LOS F-STRINGS?</h2>
+            <p>Las f-strings son una herramienta de optimización en Python que incluye un <strong>Lenguaje de Especificación de Formato</strong>. Permiten definir alineación, precisión y tipos directamente en las llaves <code>{}</code>, mejorando la legibilidad y el rendimiento del código.</p>
+        </section>
+
+        <!-- SECCIÓN 2: DIAGRAMA -->
+        <section class="diagram-section">
+            <h2>FLUJO DE PROCESAMIENTO</h2>
+            <div class="diagram-container">
+                <img
+                    src="Dibujo1_pages-to-jpg-0001.jpg"
+                    alt="Diagrama de flujo de f-strings"
+                    class="main-diagram"
+                    onclick="openModal()"
+                    title="Clic para ampliar"
+                >
+                <p class="diagram-hint">🔍 Clic en la imagen para ampliarla</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: COMPARATIVA -->
+        <section class="comparison-section">
+            <h2>COMPARATIVA DE EFICIENCIA</h2>
+            <div class="grid-comparativa">
+                <div class="code-block manual">
+                    <span class="badge badge-red">Ineficiente</span>
+                    <pre><code># Lógica dispersa
+txt = item.ljust(15) + ":"
+txt += str(cant).zfill(2)
+txt += " | $" + str(round(p, 2))</code></pre>
+                </div>
+                <div class="code-block optimized">
+                    <span class="badge badge-green">Optimizado</span>
+                    <pre><code># Todo en una línea
+print(f"{item:&lt;15}: {cant:02d} | ${p:.2f}")</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: ANATOMÍA -->
+        <section class="anatomy-section">
+            <h2>GUÍA TÉCNICA: ANATOMÍA</h2>
+            <p class="anatomy-subtitle">Orden estricto de banderas después de los dos puntos <code>:</code></p>
+
+            <div class="anatomy-formula">
+                <code>{ valor : [relleno][alineación][ancho][agrupador][.precisión][tipo] }</code>
+            </div>
+
+            <div class="anatomy-grid">
+                <div class="anatomy-col">
+                    <div class="anatomy-item">
+                        <span class="anatomy-label">Relleno</span>
+                        <code>0, _, *</code>
+                    </div>
+                    <div class="anatomy-item">
+                        <span class="anatomy-label">Alineación</span>
+                        <code>&lt;</code> izq &nbsp;|&nbsp; <code>^</code> centro &nbsp;|&nbsp; <code>&gt;</code> der
+                    </div>
+                    <div class="anatomy-item">
+                        <span class="anatomy-label">Ancho</span>
+                        <span>Espacio total reservado</span>
+                    </div>
+                </div>
+                <div class="anatomy-col">
+                    <div class="anatomy-item">
+                        <span class="anatomy-label">Agrupador</span>
+                        <code>,</code> (miles)
+                    </div>
+                    <div class="anatomy-item">
+                        <span class="anatomy-label">Precisión</span>
+                        <code>.2</code> (decimales)
+                    </div>
+                    <div class="anatomy-item">
+                        <span class="anatomy-label">Tipo</span>
+                        <code>f</code> float &nbsp;|&nbsp; <code>s</code> string &nbsp;|&nbsp; <code>%</code> porcentaje
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: EJEMPLOS DE APLICACIÓN -->
+        <section class="examples-section">
+            <h2>EJEMPLOS DE APLICACIÓN</h2>
+
+            <div class="example-full">
+                <div class="example-block">
+                    <h4>Formato de Moneda</h4>
+                    <pre><code>print(f"Saldo: ${1250.5:,.2f}")
+# Salida: Saldo: $1,250.50</code></pre>
+                </div>
+
+                <div class="example-block">
+                    <h4>Alineación de Columnas</h4>
+                    <pre><code>print(f"{'Poción':&lt;10} | {5:02d} unidades")
+# Salida: Poción     | 05 unidades</code></pre>
+                </div>
+
+                <div class="example-block">
+                    <h4>ID con Padding</h4>
+                    <pre><code>print(f"ID: {7:05d}")
+# Salida: ID: 00007</code></pre>
+                </div>
+
+                <div class="example-block">
+                    <h4>Porcentaje</h4>
+                    <pre><code>print(f"Aprobación: {0.85:.1%}")
+# Salida: Aprobación: 85.0%</code></pre>
+                </div>
+
+                <div class="example-block">
+                    <h4>Texto Centrado</h4>
+                    <pre><code>print(f"{'TÍTULO':*^20}")
+# Salida: *******TÍTULO*******</code></pre>
+                </div>
+
+                <div class="example-block">
+                    <h4>Número Hexadecimal</h4>
+                    <pre><code>print(f"Color: #{255:02x}{128:02x}{0:02x}")
+# Salida: Color: #ff8000</code></pre>
+                </div>
+            </div>
+
+            <!-- Mini cards de referencia rápida -->
+            <div class="example-grid">
+                <div class="mini-card">
+                    <h4>Moneda</h4>
+                    <code>f"${1250.5:,.2f}"</code>
+                </div>
+                <div class="mini-card">
+                    <h4>ID Padding</h4>
+                    <code>f"{7:05d}"</code>
+                </div>
+                <div class="mini-card">
+                    <h4>Porcentaje</h4>
+                    <code>f"{0.85:.1%}"</code>
+                </div>
+                <div class="mini-card">
+                    <h4>Centrado</h4>
+                    <code>f"{'X':*^10}"</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 6: EJECUCIÓN + DOS TERMINALES -->
+        <section class="execution-section">
+            <h2>EJECUCIÓN</h2>
+            <p class="execution-desc">Al aplicar f-strings en tu script de inventario de alquimia, el código queda limpio y el reporte se ve profesional. Aquí el flujo completo: código → salida.</p>
+
+            <div class="dual-terminal">
+
+                <!-- TERMINAL 1: CÓDIGO -->
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span class="control red"></span>
+                        <span class="control yellow"></span>
+                        <span class="control green"></span>
+                        <div class="terminal-title">inventario.py — código</div>
+                    </div>
+                    <div class="terminal-box terminal-code">
+<span class="t-comment"># Datos del inventario de alquimia</span>
+<span class="t-var">items</span> = [
+    (<span class="t-str">"Hierba Roja"</span>,  <span class="t-num">5</span>, <span class="t-num">12.50</span>),
+    (<span class="t-str">"Frasco Vacío"</span>, <span class="t-num">1</span>,  <span class="t-num">5.00</span>),
+    (<span class="t-str">"Polvo Mágico"</span>, <span class="t-num">3</span>, <span class="t-num">99.99</span>),
+]
+
+<span class="t-comment"># Encabezado con f-string centrado</span>
+<span class="t-kw">print</span>(f<span class="t-str">"{'INVENTARIO':─^30}"</span>)
+<span class="t-kw">print</span>(f<span class="t-str">"{'Ítem':<14} {'Cant':>4} {'Precio':>8}"</span>)
+<span class="t-kw">print</span>(<span class="t-str">"─" * 30</span>)
+
+<span class="t-comment"># Filas con formato: nombre, cantidad, precio</span>
+<span class="t-kw">for</span> <span class="t-var">nombre</span>, <span class="t-var">cant</span>, <span class="t-var">precio</span> <span class="t-kw">in</span> <span class="t-var">items</span>:
+    <span class="t-kw">print</span>(f<span class="t-str">"{nombre:<14} {cant:>4d}  ${precio:>6.2f}"</span>)
+                    </div>
+                </div>
+
+                <!-- TERMINAL 2: OUTPUT -->
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span class="control red"></span>
+                        <span class="control yellow"></span>
+                        <span class="control green"></span>
+                        <div class="terminal-title">python3 inventario.py — salida</div>
+                    </div>
+                    <div class="terminal-box terminal-output">
+                        <p><span class="prompt">user@localhost:~$</span> python3 inventario.py</p>
+                        <p class="t-out">──────────INVENTARIO──────────</p>
+                        <p class="t-out">Ítem            Cant   Precio</p>
+                        <p class="t-out">──────────────────────────────</p>
+                        <p class="t-out">Hierba Roja        5   $12.50</p>
+                        <p class="t-out">Frasco Vacío       1    $5.00</p>
+                        <p class="t-out">Polvo Mágico       3   $99.99</p>
+                        <p>&nbsp;</p>
+                        <p><span class="prompt">&gt;&gt;&gt;</span> <span class="cursor"></span></p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function openModal() {
+            document.getElementById('imgModal').classList.add('active');
+        }
+        function closeModal() {
+            document.getElementById('imgModal').classList.remove('active');
+        }
+        // Cerrar con ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+
+</body>
+</html>

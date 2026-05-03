@@ -1,0 +1,24 @@
+¿QUÉ SON LOS F-STRINGS?
+
+    Las f-strings no son solo una forma de insertar variables en texto; incluyen un lenguaje de especificación de formato (Format Specification Mini-Language). Este lenguaje permite definir cómo se debe presentar el dato (alineación, ancho, precisión y tipo) directamente dentro de las llaves {}, sin necesidad de llamar a funciones externas como round() o métodos de alineación de strings como .center().
+
+¿QUÉ FORMA ES MÁS EFICIENTE?
+    A continuación, comparamos el enfoque manual/antiguo contra el uso del mini-lenguaje de las f-strings para generar una línea de reporte.
+
+       Código Ineficiente (Manual)
+          Se basa en concatenación, llamadas a múltiples funciones y lógica dispersa.
+       
+       Código Optimizado (f-strings)
+          Toda la lógica de presentación reside dentro del especificador :.
+
+GUÍA TECNICA PARA USAR LOS F-STRINGS
+    Para usar este lenguaje, debes seguir un orden específico de "banderas" (flags) después de los dos puntos :.
+
+       La anatomía de una f-string avanzada:
+          { valor : [relleno][alineación][ancho][agrupador][.precisión][tipo] }
+          Relleno: Cualquier carácter (ej. _, *, 0).
+          Alineación: < (izq), > (der), ^ (centro).
+          Ancho: Espacio total reservado.
+          Agrupador: , o _ para miles.
+          Precisión: .2 para decimales o límite de caracteres.
+          Tipo: f (flotante), s (string), % (porcentaje), x (hex).
